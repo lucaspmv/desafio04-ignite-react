@@ -21,10 +21,8 @@ function Modal({ isOpen, setIsOpen, children }: ModalProps) {
   } */
 
   useEffect(() => {
-    if (modalStatus !== isOpen) {
-      setModalStatus(isOpen)
-    }
-  }, [modalStatus])
+    setModalStatus(isOpen)
+  }, [isOpen,])
 
   /* componentDidUpdate(prevProps) {
     const { isOpen } = this.props;

@@ -1,6 +1,11 @@
 import styled, { css } from 'styled-components';
 
-export const Container = styled.div`
+type ButtonContainerProps = {
+  isFocused: boolean,
+  isFilled: boolean,
+}
+
+export const Container = styled.div<ButtonContainerProps>`
   display: flex;
   align-items: center;
 

@@ -6,6 +6,7 @@ import Modal from '../Modal';
 import Input from '../Input';
 
 import { FoodType } from '../../types';
+import { FormHandles, SubmitHandler } from '@unform/core';
 
 type ModalAddFoodProps = {
   isOpen: boolean,
@@ -15,7 +16,7 @@ type ModalAddFoodProps = {
 
 
 function ModalAddFood({ isOpen, setIsOpen, handleAddFood }: ModalAddFoodProps) {
-  const formRef = useRef(null);
+  const formRef = useRef<FormHandles>(null);
 
   /* constructor(props) {
     super(props);
@@ -23,10 +24,10 @@ function ModalAddFood({ isOpen, setIsOpen, handleAddFood }: ModalAddFoodProps) {
     this.formRef = createRef();
   } */
 
-  async function handleSubmit(data: FoodType) {
-    handleAddFood(data)
-    setIsOpen()
-  }
+  const handleSubmit: SubmitHandler<FoodType> = async data => {
+    handleAddFood(data);
+    setIsOpen();
+  };
 
   /* handleSubmit = async data => {
     const { setIsOpen, handleAddFood } = this.props;
